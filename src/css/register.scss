@@ -256,6 +256,9 @@ header{
 			}
 		}
 		.registered{
+			display: none;
+			float: right;
+			clear: both;
 			color: red;
 			text-align: right;
 			@include font-dpr(26px);
@@ -430,7 +433,7 @@ footer{
 	}
 }
 .overLayer{
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -439,7 +442,7 @@ footer{
   z-index: 99;
 	display: none;
 	.lightBg{
-		position: absolute;
+		position: fixed;
 		display: inline-block;
 		left: 0;
 		right: 0;

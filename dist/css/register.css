@@ -322,6 +322,9 @@ header h1 {
 }
 
 .form .article1 .registered {
+  display: none;
+  float: right;
+  clear: both;
   color: red;
   text-align: right;
   font-size: 0.346667rem;
@@ -523,7 +526,7 @@ footer .name {
 }
 
 .overLayer {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -534,7 +537,7 @@ footer .name {
 }
 
 .overLayer .lightBg {
-  position: absolute;
+  position: fixed;
   display: inline-block;
   left: 0;
   right: 0;

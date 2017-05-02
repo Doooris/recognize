@@ -1,0 +1,23 @@
+{
+  "name": "register-page",
+  "version": "1.0.0",
+  "description": "this is a page for register guiding",
+  "main": "index.js",
+  "author": "Doris",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^6.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "postcss-px2rem": "^0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

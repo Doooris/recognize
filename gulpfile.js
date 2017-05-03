@@ -52,7 +52,7 @@ gulp.task('clean', function (cb) {
 })
 
 gulp.task('watch',function () {
-	gulp.watch('./src/css/**/*.scss',['sass']);
+	gulp.watch('./src/css/**/*.scss',['sass'])
 	gulp.watch('./src/img/**/*',['images'])
 	gulp.watch('./src/js/**/*',['js'])
 	gulp.watch('./src/html/**/*',['copy'])

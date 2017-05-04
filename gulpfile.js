@@ -12,7 +12,8 @@ var gulp = require('gulp'),
  rename = require('gulp-rename'),
  cache = require('gulp-cache'),
  uglify = require('gulp-uglify'),
- del = require('del');
+ del = require('del'),
+ runSequence = require('run-sequence')
 
 
 gulp.task('sass',function () {
@@ -48,8 +49,8 @@ gulp.task('copy', function () {
 	gulp.src('./src/layerPlugin/**/*').pipe(gulp.dest('dist/layerPlugin/'))
 })
 
-gulp.task('clean', ['sass','images','js','copy','watch'],function (cb) {
-	del('dist/',  cb)
+gulp.task('clean',function () {
+	del('dist/')
 })
 
 gulp.task('watch',function () {
@@ -59,4 +60,8 @@ gulp.task('watch',function () {
 	gulp.watch('./src/html/**/*',['copy'])
 })
 
-gulp.task('default',['clean','sass','images','js','copy','watch'])
+gulp.task('default', function (done) {
+	runSequence( 'clean','sass','images','js','copy','watch',done)
+
+})
+// gulp.task('default',gulp.series('clean','sass','images','js','copy','watch'))

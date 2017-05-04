@@ -16,7 +16,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^2.1.2",
-    "postcss-px2rem": "^0.3.0"
+    "postcss-px2rem": "^0.3.0",
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -23,6 +23,7 @@
 }
 body{
 	width: 100%;
+	min-width: 320px;
 	overflow: hidden;
 }
 @media screen and (min-width: 769px){
@@ -257,8 +258,9 @@ header{
 				  .inputWrapper{
 					  float: left;
 					  display: flex;
+					  box-sizing: border-box;
 					  width: 100%;
-					  height: 75px;
+					  height: 80px;
 					  #name,#tel{
 						  flex: 1;
 						  margin-left: 5em;
@@ -271,6 +273,7 @@ header{
 				  }
 				  label{
 					  float: left;
+					  flex: 0;
 					  height: 75px;
 					  margin-left: -100%;
 					  @include font-dpr(28px);
@@ -283,37 +286,34 @@ header{
 			  position: relative;
 			  .innerWrapper{
 				  flex: 1;
-				  float: left;
 				  margin-left: 5em;
+				  position: relative;
 				  height: 75px;
 				  line-height: 75px;
 				  @include font-dpr(28px);
 				  #message{
 					  float: left;
 					  display: inline-block;
+					  width: 55%;
+					  box-sizing: border-box;
 					  padding: 0 10px;
 					  height: 100%;
 					  border: 4px solid #ff9e04;
 				  }
+				  .messageBtn{
+					  float: right;
+					  text-align: center;
+					  width: 40%;
+					  box-sizing: border-box;
+					  height: 75px;
+					  color: #fff;
+					  outline: none;
+					  border: none;
+					  background: #FF8C00;
+					  line-height: 75px;
+					  @include font-dpr(24px);
+				  }
 			  }
-			.messageBtn{
-				position: absolute;
-				padding: 0 10px;
-				right: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				//float: left;
-				//width: 140px;
-				//margin-left: -145px;
-				box-sizing: border-box;
-				height: 75px;
-				color: #fff;
-				outline: none;
-				border: none;
-				background: #FF8C00;
-				line-height: 75px;
-				@include font-dpr(24px);
-			}
 			}
 
 		.registered{
@@ -357,6 +357,7 @@ header{
 			span{
 				color: #ff9e04;
 				font-weight: 600;
+				white-space: nowrap;
 				@include font-dpr(36px);
 			}
 			}

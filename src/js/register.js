@@ -31,38 +31,53 @@ $(function(){
 		if($(this).text() === '提交成功'){return false}
 		var name = $("#name").val().trim();
 		var tel = $("#tel").val().trim();
-		var address = $("#address").val().trim();
 		var regName = /^[\u4e00-\u9fa5]{2,5}$/;
 		if(!name){
-			alert('请输入姓名！','title');
+			layer.open({
+				type: 0,
+				content: '请输入姓名！',
+				btn: '确定'
+			})
 			return false;
 		}
 		if(!regName.test(name)){
 			$("#name").val(" ");
-			alert('请输入真实姓名！');
+			layer.open({
+				type: 0,
+				content: '请请输入真实姓名！',
+				btn: '确定'
+			})
 			return false;
 		}
 		if(!tel){
-			alert('请输入电话号码');
-			return false;
-		}
-		if(!address){
-			alert('请输入店面地址！');
+			layer.open({
+				type: 0,
+				content: '请请输入电话号码！',
+				btn: '确定'
+			})
 			return false;
 		}
 		if(!(/^1[34578]\d{9}$/.test(tel))){
 			$("#tel").val(" ");
-			alert('请输入正确的手机号码！');
+			layer.open({
+				type: 0,
+				content: '请输入正确的手机号码！',
+				btn: '确定'
+			})
 			return false;
 		}
-		$.post("", {'name':name, 'tel':tel, 'address':address}, function (status) {
+		$.post("", {'name':name, 'tel':tel }, function (status) {
 			//  数据库中没有该用户则提交成功;如果用户已经注册则返回登录连接
 			if (status === 0 ){
 				$(".overLayer").fadeIn();
 			} else if (status === 1) {
 				$(".registered").fadeIn();
 			} else {
-				alert("提交失败，请重试！");
+				layer.open({
+					type: 0,
+					content: '提交失败，请重试！',
+					btn: '确定'
+				})
 				name.val("");
 				tel.val("");
 				address.val("");

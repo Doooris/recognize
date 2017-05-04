@@ -15,10 +15,15 @@
 	border-radius: 50%;
 	background: #FFF0DC;
 }
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+}
 body{
 	width: 100%;
-	height: 100%;
-	overflow: auto;
+	overflow: hidden;
 }
 @media screen and (min-width: 769px){
 	body{
@@ -35,7 +40,9 @@ body{
 	text-align: center;
 	@include font-dpr(36px);
 }
-
+.layui-m-layerbtn span{
+	font-size: 32px;
+}
 .dash{
 	position: absolute;
 	left: 0;
@@ -185,6 +192,7 @@ header{
 	box-sizing: border-box;
 	width: 100%;
 	padding: 120px 40px 0;
+	//overflow: hidden;
 	.title{
 		box-sizing: border-box;
 		width: 100%;
@@ -195,6 +203,8 @@ header{
 		}
 	}
 	.content{
+		max-width: 100%;
+		box-sizing: border-box;
 		margin: 40px 0;
 		display: flex;;
 		align-items: center;
@@ -232,29 +242,80 @@ header{
 		}
 		.right{
 			flex: 1;
+			box-sizing: border-box;
 		}
-		form .inputList{
+		form{
+			width: 100%;
 			display: flex;
-			align-items: center;
-			margin-bottom: 16px;
-			label{
-				@include font-dpr(28px);
-				opacity: 0.6;
-			}
-			input,textarea{
-				flex: 1;
-				border: 4px solid #ff9e04;
-				line-height: 75px;
-				padding: 0 10px;
-				@include font-dpr(26px);
-			}
-			textarea{
-				height: 130px;
-			}
-			input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
-				opacity: 0.8;
+			flex-flow: column wrap;
+			.inputList{
+				font-size: 0;
+					margin-bottom: 30px;
+					height: 75px;
+					line-height: 75px;
+					width: 100%;
+				  .inputWrapper{
+					  float: left;
+					  display: flex;
+					  width: 100%;
+					  height: 75px;
+					  #name,#tel{
+						  flex: 1;
+						  margin-left: 5em;
+						  height: 75px;
+						  line-height: 75px;
+							border: 4px solid #ff9e04;
+							padding: 0 10px;
+							@include font-dpr(28px);
+					  }
+				  }
+				  label{
+					  float: left;
+					  height: 75px;
+					  margin-left: -100%;
+					  @include font-dpr(28px);
+					  opacity: 0.6;
+					  white-space: nowrap;
+				  }
 			}
 		}
+		form .inputList2{
+			  position: relative;
+			  .innerWrapper{
+				  flex: 1;
+				  float: left;
+				  margin-left: 5em;
+				  height: 75px;
+				  line-height: 75px;
+				  @include font-dpr(28px);
+				  #message{
+					  float: left;
+					  display: inline-block;
+					  padding: 0 10px;
+					  height: 100%;
+					  border: 4px solid #ff9e04;
+				  }
+			  }
+			.messageBtn{
+				position: absolute;
+				padding: 0 10px;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				//float: left;
+				//width: 140px;
+				//margin-left: -145px;
+				box-sizing: border-box;
+				height: 75px;
+				color: #fff;
+				outline: none;
+				border: none;
+				background: #FF8C00;
+				line-height: 75px;
+				@include font-dpr(24px);
+			}
+			}
+
 		.registered{
 			display: none;
 			float: right;
@@ -274,24 +335,29 @@ header{
 			line-height: 30px;
 			@include font-dpr(24px);
 		}
-    .submitBtn{
-	    float: right;
-	    margin-top: 20px;
-	    width: 300px;
-	    height: 68px;
-	    line-height: 68px;
-	    @extend .btn;
-    }
+		.submitBtnWrapper{
+			text-align: right;
+			.submitBtn{
+				float: right;
+				margin-top: 20px;
+				width: 300px;
+				height: 68px;
+				line-height: 68px;
+				@extend .btn;
+			}
+		}
 	}
 	.article2{
 		.left{
 			flex: 1;
-			line-height: 40px;
+			line-height: 50px;
 			text-align: center;
 			opacity: 0.6;
 			@include font-dpr(30px);
 			span{
-				color: #ffb855;
+				color: #ff9e04;
+				font-weight: 600;
+				@include font-dpr(36px);
 			}
 			}
 		.protocolDetailWrapper{
@@ -388,27 +454,12 @@ header{
 	position: relative;
 	width: 100%;
 	height: 0;
-	padding-bottom: 133%;
-	background: url("../img/joinBg.png") no-repeat;
+	padding-bottom: 118%;
+	background: url("../img/join2.png") no-repeat;
 	background-size: contain;
 	img{
 		width: 100%;
 		height: 100%;
-	}
-	.registerBtn3{
-		@extend .btn;
-		position: absolute;
-		bottom: 16px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 400px;
-		height: 90px;
-		line-height: 90px;
-		background-image: linear-gradient(to bottom,#00BEF7,#0068DC);
-		border: 6px solid #fff;
-		letter-spacing: 10px;
-		@include font-dpr(44px);
-		text-shadow: 0 2px 2px #000000;
 	}
 }
 footer{

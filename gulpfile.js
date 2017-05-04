@@ -45,9 +45,10 @@ gulp.task('js', function () {
 gulp.task('copy', function () {
 	gulp.src('./src/html/**/*').pipe(gulp.dest('dist/html'))
 	gulp.src('./src/css/reset.css').pipe(gulp.dest('dist/css/'))
+	gulp.src('./src/layerPlugin/**/*').pipe(gulp.dest('dist/layerPlugin/'))
 })
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', ['sass','images','js','copy','watch'],function (cb) {
 	del('dist/',  cb)
 })
 

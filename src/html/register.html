@@ -26,7 +26,6 @@
 		</ul>
 	</div>
 	<div class="slogon"></div>
-	<a href="javascript:;" class="registerBtn btn">立即注册</a>
 	<div class="detail">
 		<p><span class="name">爱运科技</span>致力于运输行业，公司基于移动互联网 技术开发，以“公路运输宝”APP为主导，实现了公路运 输智能服务，是中国第一个客运货运自动化调配平台。</p>
 		<p><span class="space">由于爱运的货运物流量</span><span class="em">大</span> ，但货物暂存的 停放点<span class="em">少</span>，为方便物件的停放与收取，爱运面向全国招募</span><span class="em2">“ 货运暂存点 ”</span></p>
@@ -57,11 +56,17 @@
 			<div class="right">
 				<form action="">
 					<div class="inputList clearfix">
-						<div class="inputWrapper"><input type="text" id="name" placeholder="您的真实姓名" autocomplete="off"></div>
+						<div class="inputWrapper">
+							<input type="text" id="name" placeholder="您的真实姓名" autocomplete="off" title="请输入真实姓名" required pattern="^[\u4e00-\u9fa5]{2,5}$" />
+							<span class="tip">请输入真实姓名</span>
+						</div>
 						<label for="name">真实姓名:</label>
 					</div>
 					<div class="inputList clearfix">
-						<div class="inputWrapper"><input type="text" id="tel" placeholder="您常用的电话号码" autocomplete="off"></div>
+						<div class="inputWrapper">
+							<input type="tel" id="tel" placeholder="您常用的电话号码" autocomplete="off" required pattern="^1[34578]\d{9}$" />
+							<span class="tip">请输入真实电话号码</span>
+						</div>
 						<label for="tel">电话号码:</label>
 					</div>
 					<div class="inputList inputList2 clearfix">
@@ -70,12 +75,12 @@
 								<input type="text" id="message" placeholder="短信验证码" autocomplete="off">
 								<input type="button" class="messageBtn" value="获取验证码">
 							</div>
+							<span class="tip">您已注册，请直接登录</span>
 						</div>
 						<label for="message" class="messageLabel">验证码:</label>
 					</div>
-					<span class="registered">您已注册，请直接<a href="">登录</a></span>
 					<span class="extra">您的信息爱运将自动保存，同时保证信息安全，更多认证请在“公路运输宝”APP内完善</span>
-					<div class="submitBtnWrapper"><a href="#" class="submitBtn btn" id="submitBtn">提交信息</a></div>
+					<div class="submitBtnWrapper"><input type="button" class="submitBtn btn" id="submitBtn" value="提交信息"></div>
 					<div class="overLayer">
 						<span class="lightBg"></span>
 						<div class="submitBg">
@@ -125,7 +130,12 @@
 		</div>
 	</article>
 </section>
-<section class="join"></section>
+<section class="join">
+	<div class="codeBox">
+		<span>长按关注爱运公众号</span>
+		<img src="../img/code.png" alt="aiyun's code">
+	</div>
+</section>
 <footer>
 	<div class="dashWrapper"><span class="dashed"></span></div>
 	<span class="name">爱运科技有限公司</span>

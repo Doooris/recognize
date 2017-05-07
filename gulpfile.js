@@ -11,7 +11,7 @@ var gulp = require('gulp'),
  px2rem = require('postcss-px2rem'),
  rename = require('gulp-rename'),
  cache = require('gulp-cache'),
- uglify = require('gulp-uglify'),
+ // uglify = require('gulp-uglify'),
  del = require('del'),
  runSequence = require('run-sequence')
 
@@ -38,8 +38,7 @@ gulp.task('images', function () {
 )
 
 gulp.task('js', function () {
-	gulp.src('./src/js/register.js')
-		.pipe(uglify())
+	gulp.src('./src/js/*.js')
 		.pipe(gulp.dest('dist/js/'))
 })
 
@@ -60,8 +59,6 @@ gulp.task('watch',function () {
 	gulp.watch('./src/html/**/*',['copy'])
 })
 
-gulp.task('default', function (done) {
-	runSequence( 'clean','sass','images','js','copy','watch',done)
+gulp.task('default', ['sass','images','js','copy','watch'])
 
-})
 // gulp.task('default',gulp.series('clean','sass','images','js','copy','watch'))

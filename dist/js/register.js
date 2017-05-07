@@ -1,1 +1,159 @@
-"use strict";$(function(){function t(){e++,e==o&&(n.css("left",0),e=1),n.stop().animate({left:100*-e+"%"},1e3)}var e=0,n=$(".slogonPicWrapper ul");n.append($(".slogonPicWrapper li:first").clone());var o=$(".slogonPicWrapper li").size();n.css("width",100*o+"%"),$(".slogonPicWrapper li").css("width",100/o+"%");var r=setInterval(function(){t()},3e3);$(".slogonPicWrapper").hover(function(){clearInterval(r)},function(){r=setInterval(function(){t()},3e3)}),$(".submitBtn").on("click",function(){if("提交成功"===$(this).text())return!1;var t=$("#name").val().trim(),e=$("#tel").val().trim(),n=/^[\u4e00-\u9fa5]{2,5}$/;return t?n.test(t)?e?/^1[34578]\d{9}$/.test(e)?void $.post("",{name:t,tel:e},function(n){0===n?$(".overLayer").fadeIn():1===n?$(".registered").fadeIn():(layer.open({type:0,content:"提交失败，请重试！",btn:"确定"}),t.val(""),e.val(""),address.val(""))}):($("#tel").val(" "),layer.open({type:0,content:"请输入正确的手机号码！",btn:"确定"}),!1):(layer.open({type:0,content:"请请输入电话号码！",btn:"确定"}),!1):($("#name").val(" "),layer.open({type:0,content:"请请输入真实姓名！",btn:"确定"}),!1):(layer.open({type:0,content:"请输入姓名！",btn:"确定"}),!1)}),$(".overLayer .close").on("click",function(){$(".overLayer").fadeOut(),$(".submitBtn").css({background:"transparent",border:"2px solid #FF8C00",color:"#FF8C00"}).text("提交成功")}),$(".protocolBtn").on("click",function(){$(".protocolDetailWrapper").fadeIn()}),$(".backBtn").on("click",function(){$(".protocolDetailWrapper").fadeOut()})});
+/**
+ * Created by Doris on 2017/4/26.
+ */
+'use strict';
+
+$(function(){
+	// 轮播实现
+	var i = 0;
+	var $ul = $(".slogonPicWrapper ul");
+	$ul.append($(".slogonPicWrapper li:first").clone());
+	var size = $(".slogonPicWrapper li").size();
+	$ul.css("width",size*100+"%");
+	$(".slogonPicWrapper li").css("width",100/size+"%");
+	function moveR(){
+		i++;
+		if(i ==size){
+			$ul.css("left",0);
+			i=1;
+		}
+		$ul.stop().animate({left:-i*100+"%"},1000);
+	}
+	var  t= setInterval(function(){moveR();},3000);
+	$(".slogonPicWrapper").hover(function(){
+		clearInterval(t);
+	},function(){
+		t= setInterval(function(){moveR();},3000);
+	})
+
+
+
+	// 发送验证码
+	$(".messageBtn").click(function () {
+
+	})
+
+	var $tel = $("#tel");
+	var $name = $("#name");
+	var $message = $("#message");
+
+	$name.change(() => {
+		var name = $name.val().trim();
+		if(name){
+			var regName = /^[\u4e00-\u9fa5]{2,5}$/;
+			if(!regName.test(name)){
+				$(this).next(".tip").fadeIn();
+			}
+		}
+	})
+
+	// 判断手机是否合法
+	 function isPhoneNum() {
+		 var tel = $tel.val().trim();
+		 if(!(/^1[34578]\d{9}$/.test(tel))){
+			 $tel.val(" ");
+			 layer.open({
+				 type: 0,
+				 content: '请输入正确的手机号码！',
+				 btn: '确定'
+			 })
+			 $tel.focus();
+			 return false;
+		 }else {
+			 return true;
+		 }
+	 }
+
+	 // 判断姓名是否合法
+	 function isRealName() {
+		 var name = $name.val().trim();
+		 var regName = /^[\u4e00-\u9fa5]{2,5}$/;
+		 if(!regName.test(name)){
+			 $name.val(" ");
+			 layer.open({
+				 type: 0,
+				 content: '请请输入真实姓名！',
+				 btn: '确定'
+			 })
+			 $name.focus();
+			 return false;
+		 }
+	 }
+
+	// 提交信息
+	$(".submitBtn").on('click',function () {
+		// if($(this).text() === '提交成功'){return false}
+		// var name = $name.val().trim();
+		// var regName = /^[\u4e00-\u9fa5]{2,5}$/;
+		// if(!name){
+		// 	layer.open({
+		// 		type: 0,
+		// 		content: '请输入姓名！',
+		// 		btn: '确定'
+		// 	})
+		// 	return false;
+		// }
+		// if(!regName.test(name)){
+		// 	$("#name").val(" ");
+		// 	layer.open({
+		// 		type: 0,
+		// 		content: '请请输入真实姓名！',
+		// 		btn: '确定'
+		// 	})
+		// 	return false;
+		// }
+		// if(!tel){
+		// 	layer.open({
+		// 		type: 0,
+		// 		content: '请请输入电话号码！',
+		// 		btn: '确定'
+		// 	})
+		// 	return false;
+		// }
+		// if(!(/^1[34578]\d{9}$/.test(tel))){
+		// 	$tel.val(" ");
+		// 	layer.open({
+		// 		type: 0,
+		// 		content: '请输入正确的手机号码！',
+		// 		btn: '确定'
+		// 	})
+		// 	return false;
+		// }
+		// $.post("", {'name':name, 'tel':tel }, function (status) {
+		// 	//  数据库中没有该用户则提交成功;如果用户已经注册则返回登录连接
+		// 	if (status === 0 ){
+		// 		$(".overLayer").fadeIn();
+		// 	} else if (status === 1) {
+		// 		$(".registered").fadeIn();
+		// 	} else {
+		// 		layer.open({
+		// 			type: 0,
+		// 			content: '提交失败，请重试！',
+		// 			btn: '确定'
+		// 		})
+		// 		name.val("");
+		// 		tel.val("");
+		// 		address.val("");
+		// 	}
+		// })
+	})
+	function resetCss() {
+		$(".submitBtn").css({"background":"#FF8C00","color":"#fff"}).val("提交信息");
+	}
+	function addCss() {
+		$(".submitBtn").css({"background":"transparent","border":"2px solid #FF8C00","color":"#FF8C00"}).val("提交成功");
+	}
+	$(".overLayer .close").on('click',function () {
+		$(".overLayer").fadeOut();
+		addCss();
+	})
+
+	//  暂存点合作协议浮层
+	$(".protocolBtn").on('click',function () {
+		$(".protocolDetailWrapper").fadeIn();
+	})
+	$(".backBtn").on('click',function () {
+		$(".protocolDetailWrapper").fadeOut();
+	})
+});
+

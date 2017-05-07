@@ -105,16 +105,9 @@ header{
 		background-size: 80%;
 		@include center;
 	}
-	.registerBtn{
-		width: 360px;
-		height: 80px;
-		line-height: 80px;
-		letter-spacing: 8px;
-		@extend .btn;
-	}
 	.detail{
 		position: relative;
-		margin: 50px 26px;
+		margin: 0 26px 50px;
 		padding: 50px 15px;
 		background: #FFF0DC;
 		border-radius: 30px;
@@ -251,11 +244,12 @@ header{
 			flex-flow: column wrap;
 			.inputList{
 				font-size: 0;
-					margin-bottom: 30px;
+					margin-bottom: 45px;
 					height: 75px;
 					line-height: 75px;
 					width: 100%;
 				  .inputWrapper{
+					  position: relative;
 					  float: left;
 					  display: flex;
 					  box-sizing: border-box;
@@ -269,6 +263,28 @@ header{
 							border: 4px solid #ff9e04;
 							padding: 0 10px;
 							@include font-dpr(28px);
+					  }
+					  input:focus:invalid,input:checked:invalid{
+						  background: url("../img/invalid.png") no-repeat;
+						  background-position: right center;
+						  background-size: 40px 40px;
+					  }
+					  input:required:valid{
+						  background: url("../img/valid.png") no-repeat;
+						  background-position: right center;
+						  background-size: 40px 40px;
+					  }
+					  .tip{
+
+						  position: absolute;
+						  display: none;
+						  white-space: nowrap;
+						  line-height: 26px;
+						  color: red;
+						  margin-left: 5em;
+						  padding-left: 10px;
+						  bottom: -30px;
+						  @include font-dpr(26px);
 					  }
 				  }
 				  label{
@@ -303,7 +319,7 @@ header{
 				  .messageBtn{
 					  float: right;
 					  text-align: center;
-					  width: 40%;
+					  width: 43%;
 					  box-sizing: border-box;
 					  height: 75px;
 					  color: #fff;
@@ -317,15 +333,12 @@ header{
 			}
 
 		.registered{
-			display: none;
+			//display: none;
 			float: right;
 			clear: both;
 			color: red;
 			text-align: right;
 			@include font-dpr(26px);
-			a{
-				text-decoration: underline;
-			}
 		}
 		.extra{
 			display: inline-block;
@@ -342,6 +355,8 @@ header{
 				margin-top: 20px;
 				width: 300px;
 				height: 68px;
+				outline: none;
+				border: none;
 				line-height: 68px;
 				@extend .btn;
 			}
@@ -454,13 +469,34 @@ header{
 .join{
 	position: relative;
 	width: 100%;
+	//border: 1px solid red;
 	height: 0;
 	padding-bottom: 118%;
-	background: url("../img/join2.png") no-repeat;
+	background: url("../img/joinBg.png") no-repeat;
 	background-size: contain;
-	img{
+	.codeBox{
+		position: absolute;
+		bottom: 30px;
 		width: 100%;
-		height: 100%;
+		height: 0;
+		padding-bottom: 62%;
+		//border: 1px solid red;
+		text-align: center;
+		span{
+			display: block;
+			margin-top: 5%;
+			color: #fff;
+			font-weight: 300;
+			@include font-dpr(48px);
+		}
+    img{
+	    width: 48%;
+	    position: absolute;
+	    bottom: 0;
+      left: 50%;
+	    transform: translateX(-50%);
+    }
+		
 	}
 }
 footer{

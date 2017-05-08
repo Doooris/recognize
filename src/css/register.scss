@@ -208,24 +208,28 @@ header{
 			align-items: center;
 			.img{
 				display: inline-block;
-				width: 110px;
-				height: 110px;
-				background-size: 110px 110px;
+				width: 115px;
+				height: 115px;
 				margin: 0 auto 10px;
 			}
 			.text{
 				display: inline-block;
 				background: #ff9e04;
 				color: #fff;
+				font-weight: 300;
 				text-align: center;
 				line-height: 50px;
 				padding: 0 20px;
-				@include font-dpr(24px);
+				@include font-dpr(26px);
 			}
 
 		}
 	}
 	.article1{
+		margin-bottom: 70px;
+		.content{
+			margin-bottom: 0;
+		}
 		.left{
 			flex: 0 0 200px;
 			width: 200px;
@@ -237,132 +241,49 @@ header{
 		.right{
 			flex: 1;
 			box-sizing: border-box;
-		}
-		form{
-			width: 100%;
-			display: flex;
-			flex-flow: column wrap;
-			.inputList{
-				font-size: 0;
-					margin-bottom: 45px;
-					height: 75px;
-					line-height: 75px;
-					width: 100%;
-				  .inputWrapper{
-					  position: relative;
-					  float: left;
-					  display: flex;
-					  box-sizing: border-box;
-					  width: 100%;
-					  height: 80px;
-					  #name,#tel{
-						  flex: 1;
-						  margin-left: 5em;
-						  height: 75px;
-						  line-height: 75px;
-							border: 4px solid #ff9e04;
-							padding: 0 10px;
-							@include font-dpr(28px);
-					  }
-					  input:focus:invalid,input:checked:invalid{
-						  background: url("../img/invalid.png") no-repeat;
-						  background-position: right center;
-						  background-size: 40px 40px;
-					  }
-					  input:required:valid{
-						  background: url("../img/valid.png") no-repeat;
-						  background-position: right center;
-						  background-size: 40px 40px;
-					  }
-					  .tip{
-
-						  position: absolute;
-						  display: none;
-						  white-space: nowrap;
-						  line-height: 26px;
-						  color: red;
-						  margin-left: 5em;
-						  padding-left: 10px;
-						  bottom: -30px;
-						  @include font-dpr(26px);
-					  }
-				  }
-				  label{
-					  float: left;
-					  flex: 0;
-					  height: 75px;
-					  margin-left: -100%;
-					  @include font-dpr(28px);
-					  opacity: 0.6;
-					  white-space: nowrap;
-				  }
+			padding: 0 10%;
+			.input{
+				border: 4px solid #ff9e04;
+				margin-bottom: 15px;
+				text-align: center;
+				color: #ff9e04;
+				opacity: 0.7;
+				padding: 15px 0;
+				@include font-dpr(34px);
+				background: url("../img/valid.png") no-repeat;
+				background-position: 98% 50%;
+				background-size: 10%;
 			}
-		}
-		form .inputList2{
-			  position: relative;
-			  .innerWrapper{
-				  flex: 1;
-				  margin-left: 5em;
-				  position: relative;
-				  height: 75px;
-				  line-height: 75px;
-				  @include font-dpr(28px);
-				  #message{
-					  float: left;
-					  display: inline-block;
-					  width: 55%;
-					  box-sizing: border-box;
-					  padding: 0 10px;
-					  height: 100%;
-					  border: 4px solid #ff9e04;
-				  }
-				  .messageBtn{
-					  float: right;
-					  text-align: center;
-					  width: 43%;
-					  box-sizing: border-box;
-					  height: 75px;
-					  color: #fff;
-					  outline: none;
-					  border: none;
-					  background: #FF8C00;
-					  line-height: 75px;
-					  @include font-dpr(24px);
-				  }
-			  }
-			}
-
-		.registered{
-			//display: none;
-			float: right;
-			clear: both;
-			color: red;
-			text-align: right;
-			@include font-dpr(26px);
 		}
 		.extra{
-			display: inline-block;
-			text-align: right;
-			width: 100%;
-			color: #ffb54c;
-			line-height: 30px;
-			@include font-dpr(24px);
-		}
-		.submitBtnWrapper{
-			text-align: right;
-			.submitBtn{
-				float: right;
-				margin-top: 20px;
-				width: 300px;
-				height: 68px;
-				outline: none;
-				border: none;
-				line-height: 68px;
-				@extend .btn;
+			span{
+				display: block;
+				text-align: right;
+				white-space: nowrap;
+				padding: 0 10% 0 0;
+				overflow: hidden;
+			}
+			.tipStyle1{
+				color: #ff9e04;
+				@include font-dpr(38px);
+				margin-bottom: 20px;
+				opacity: 0.7;
+				}
+			.tipStyle2{
+				@include font-dpr(28px);
+				line-height: 1.5em;
+				opacity: 0.6;
+			}
+			.tipStyle3{
+				color: #ff9e04;
+				@include font-dpr(28px);
+				line-height: 1.5em;
+				opacity: 0.7;
 			}
 		}
 	}
 	.article2{
+		margin-bottom: 70px;
 		.left{
 			flex: 1;
 			line-height: 50px;
@@ -438,6 +359,7 @@ header{
 		}
 	}
 	.article3{
+		margin-bottom: 70px;
 		.left{
 			flex: 0 0 200px;
 			.img{
@@ -448,12 +370,13 @@ header{
 		.right{
 			flex: 1;
 			text-align: center;
-			.registerBtn2{
+			.registerBtn{
 				display: inline-block;
 				width: 300px;
 				height: 68px;
 				line-height: 68px;
 				@extend .btn;
+				padding: 0;
 			}
 			span{
 				display: block;

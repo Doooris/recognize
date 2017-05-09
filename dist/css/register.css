@@ -348,6 +348,7 @@ header h1 {
 }
 
 .form .article2 .left {
+  position: relative;
   -ms-flex: 1;
   flex: 1;
   line-height: 0.666667rem;
@@ -356,73 +357,16 @@ header h1 {
   font-size: 0.4rem;
 }
 
-.form .article2 .left span {
+.form .article2 .left .protocolBtn,
+.form .article2 .left .bracket {
   color: #ff9e04;
   font-weight: 600;
   white-space: nowrap;
   font-size: 0.48rem;
 }
 
-.form .article2 .protocolDetailWrapper {
-  position: fixed;
-  display: none;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  z-index: 50;
-  background: #fff;
-}
-
-.form .article2 .protocolDetailWrapper .protocolDetail {
-  min-height: 100%;
-  width: 100%;
-}
-
-.form .article2 .protocolDetailWrapper .protocolDetail .main {
-  width: 80%;
-  margin: 0 auto;
-  padding: 0.853333rem 0.266667rem 1.706667rem 0.266667rem;
-}
-
-.form .article2 .protocolDetailWrapper .protocolDetail .main h1 {
-  color: #3a3a3a;
-  font-size: 0.533333rem;
-  text-align: center;
-  margin-bottom: 0.426667rem;
-}
-
-.form .article2 .protocolDetailWrapper .protocolDetail .main p {
-  color: #3a3a3a;
-  opacity: 0.9;
-  font-size: 0.426667rem;
-  line-height: 0.533333rem;
-}
-
-.form .article2 .protocolDetailWrapper .back {
-  position: relative;
-  text-align: center;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 0.853333rem;
-  height: 0.853333rem;
-  margin: -1.306667rem auto 0 auto;
-  clear: both;
-  border-radius: 50%;
-  background: url("../img/close.png") no-repeat center;
-  background-size: contain;
-}
-
-.form .article2 .protocolDetailWrapper .back .backBtn {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  padding: 0.133333rem;
+.form .article2 .left .protocolBtn {
+  text-decoration: underline;
 }
 
 .form .article2 .right {
@@ -580,4 +524,82 @@ footer .name {
   display: inline-block;
   width: 1.333333rem;
   height: 1.333333rem;
+}
+
+.protocolDetailWrapper {
+  font-family: "PingFang SC";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+
+.protocolDetailWrapper .protocolDetail {
+  min-height: 100%;
+  width: 100%;
+}
+
+.protocolDetailWrapper .protocolDetail .main {
+  width: 90%;
+  color: #3a3a3a;
+  margin: 0 auto;
+  padding: 0.853333rem 0 1.706667rem;
+}
+
+.protocolDetailWrapper .protocolDetail .main .protocolTitle {
+  font-size: 0.56rem;
+  text-align: center;
+  margin-bottom: 0.426667rem;
+}
+
+.protocolDetailWrapper .protocolDetail .main section {
+  margin: 0.4rem 0;
+}
+
+.protocolDetailWrapper .protocolDetail .main section .sectionTitle {
+  font-size: 0.453333rem;
+}
+
+.protocolDetailWrapper .protocolDetail .main section p,
+.protocolDetailWrapper .protocolDetail .main section dt,
+.protocolDetailWrapper .protocolDetail .main section dd {
+  opacity: 0.9;
+  font-size: 0.4rem;
+  line-height: 0.6rem;
+  margin: 0.133333rem 0;
+}
+
+.protocolDetailWrapper .protocolDetail .main section dd {
+  margin-left: 2em;
+}
+
+.protocolDetailWrapper .back {
+  position: relative;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 0.853333rem;
+  height: 0.853333rem;
+  margin: -1.306667rem auto 0 auto;
+  clear: both;
+  border-radius: 50%;
+  background: url("../img/close1.png") no-repeat center;
+  background-size: contain;
+}
+
+.protocolDetailWrapper .back .backBtn {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0.133333rem;
 }

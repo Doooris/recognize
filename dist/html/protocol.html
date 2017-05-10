@@ -8,8 +8,10 @@
 	<meta content="telephone=no,email=no" name="format-detection">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<title>爱运货运暂存点合作协议</title>
+	<link type="text/css" rel="stylesheet" href="../css/reset.css"/>
 	<link type="text/css" rel="stylesheet" href="../css/register.css"/>
-	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<script src="../js/flexible.debug.js"></script>
+	<script src="../js/flexible_css.debug.js"></script>
 </head>
 <body>
 <div class="protocolDetailWrapper">
@@ -196,6 +198,27 @@
 	</div>
 	<div class="back"><a href="./register.html#article2" class="backBtn"></a></div>
 </div>
+<a class="toTop"></a>
+<script src="https://cdn.bootcss.com/jquery/2.0.2/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".toTop").hide();
+		$(function () {
+			$(".protocolDetailWrapper").scroll(function () {
+				if($(this).scrollTop()>1){
+					$(".toTop").fadeIn(200);
+				}else {
+					$(".toTop").fadeOut();
+				}
+			})
 
+		})
+		$(".toTop").click(function () {
+			$(".protocolDetailWrapper").stop().animate({scrollTop:0},600);
+			return false
+		})
+	});
+
+</script>
 </body>
 </html>

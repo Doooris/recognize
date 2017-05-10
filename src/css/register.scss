@@ -438,6 +438,17 @@ footer{
 	}
 }
 
+.toTop{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: url("../img/top.png") no-repeat;
+	background-size: 100px 100px;
+}
 // protocol.html' css stylesheet
 .protocolDetailWrapper{
 	font-family: "PingFang SC";

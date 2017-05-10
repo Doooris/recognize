@@ -526,6 +526,18 @@ footer .name {
   height: 1.333333rem;
 }
 
+.toTop {
+  position: absolute;
+  bottom: 0.133333rem;
+  right: 0.133333rem;
+  display: inline-block;
+  width: 1.333333rem;
+  height: 1.333333rem;
+  border-radius: 50%;
+  background: url("../img/top.png") no-repeat;
+  background-size: 1.333333rem 1.333333rem;
+}
+
 .protocolDetailWrapper {
   font-family: "PingFang SC";
   position: absolute;

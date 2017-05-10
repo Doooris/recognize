@@ -26,12 +26,5 @@ $(function(){
 		t= setInterval(function(){moveR();},3000);
 	})
 
-	// //  暂存点合作协议浮层
-	// $(".protocolBtn").on('click',function () {
-	// 	$(".protocolDetailWrapper").fadeIn();
-	// })
-	// $(".backBtn").on('click',function () {
-	// 	$(".protocolDetailWrapper").fadeOut();
-	// })
 });
 

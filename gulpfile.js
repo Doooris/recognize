@@ -11,10 +11,8 @@ var gulp = require('gulp'),
  px2rem = require('postcss-px2rem'),
  rename = require('gulp-rename'),
  cache = require('gulp-cache'),
- // uglify = require('gulp-uglify'),
- del = require('del'),
- runSequence = require('run-sequence')
-
+ uglify = require('gulp-uglify'),
+ del = require('del')
 
 gulp.task('sass',function () {
 	 gulp.src('./src/css/*.scss')
@@ -39,13 +37,14 @@ gulp.task('images', function () {
 
 gulp.task('js', function () {
 	gulp.src('./src/js/*.js')
+		.pipe(uglify())
 		.pipe(gulp.dest('dist/js/'))
 })
 
 gulp.task('copy', function () {
 	gulp.src('./src/html/**/*').pipe(gulp.dest('dist/html'))
-	gulp.src('./src/css/reset.css').pipe(gulp.dest('dist/css/'))
-	gulp.src('./src/layerPlugin/**/*').pipe(gulp.dest('dist/layerPlugin/'))
+	gulp.src('./src/css/*.css').pipe(gulp.dest('dist/css/'))
+	gulp.src('./src/fonts/**/*').pipe(gulp.dest('dist/fonts'))
 })
 
 gulp.task('clean',function () {
@@ -54,11 +53,10 @@ gulp.task('clean',function () {
 
 gulp.task('watch',function () {
 	gulp.watch('./src/css/**/*.scss',['sass'])
-	gulp.watch('./src/img/**/*',['images'])
+	gulp.watch('./src/img/**/*',['images','copy'])
 	gulp.watch('./src/js/**/*',['js'])
 	gulp.watch('./src/html/**/*',['copy'])
 })
 
 gulp.task('default', ['sass','images','js','copy','watch'])
 
-// gulp.task('default',gulp.series('clean','sass','images','js','copy','watch'))

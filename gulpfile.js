@@ -37,14 +37,16 @@ gulp.task('images', function () {
 
 gulp.task('js', function () {
 	gulp.src('./src/js/*.js')
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(gulp.dest('dist/js/'))
 })
 
 gulp.task('copy', function () {
-	gulp.src('./src/html/**/*').pipe(gulp.dest('dist/html'))
+	gulp.src('./src/html/**/*').pipe(gulp.dest('dist/html/'))
 	gulp.src('./src/css/*.css').pipe(gulp.dest('dist/css/'))
-	gulp.src('./src/fonts/**/*').pipe(gulp.dest('dist/fonts'))
+	gulp.src('./src/fonts/**/*').pipe(gulp.dest('dist/fonts/'))
+    gulp.src('./src/layer/**/*').pipe(gulp.dest('dist/layer/'))
+
 })
 
 gulp.task('clean',function () {

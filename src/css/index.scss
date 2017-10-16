@@ -4,3 +4,251 @@
 	clear: both;
 	height: 0;
 }
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+html,body{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "PingFang SC";
+  font-weight: 300;
+}
+
+
+// 认证导航页
+.index{
+  section{
+    margin-top: 60px;
+    .sectionTitle{
+      height: 40px;
+      padding-bottom: 50px;
+      padding-left: 15px;
+      border-bottom: 5px solid #f1f2f3; /*no*/
+      font-weight: 400;
+      @include font-dpr(34px); /*px*/
+      //opacity: 0.7;
+    }
+    .lists{
+      .link{
+        display: block;
+        .listItem{
+          height: 100px;
+          padding: 0 40px;
+          border-bottom: 5px solid #f1f2f3; /*no*/
+          //border: 1px solid red;
+          line-height: 100px;
+          @include font-dpr(30px); /*px*/
+          color: #333;
+          .left{
+            float: left;
+          }
+          .right{
+            float: right;
+            .icon{
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+// 身份证认证页
+#idAuth{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 100px 0 120px;
+  .tip{
+    position: absolute;
+    top: 0;
+    //border: 1px solid red;
+    padding: 12px;
+    color: #f9991d;
+    background: #fff;
+    line-height: 1.2em;
+    z-index: 99;
+    @include font-dpr(28px); /*px*/
+  }
+
+  // 身份认证页面的表单内容
+  .scrollHook{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .itemBox{
+      text-align: center;
+      .item{
+        position: relative;
+        display: inline-block;
+        width: 49%;
+        height: 0;
+        //border: 1px solid red;
+        padding-bottom: 29%;
+        img{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 80%;
+        }
+      }
+    }
+    .inputBox{
+      //border: 1px solid red;
+      padding: 0;
+      margin: 10px 20px 40px;
+      .inputItem{
+        position: relative;
+        height: 100px;
+        line-height: 100px;
+        @include font-dpr(30px); /*px*/
+        .left{
+          position: absolute;
+          //border: 1px solid red;
+          width: 5em;
+
+        }
+        .right{
+          padding-left: 6em;
+          border-bottom: 1px solid #ccc; /*no*/
+          //border: 1px solid red;
+          width: 100%;
+          height: 100%;
+          .input{
+            display: inline-block;
+            padding: 0.5em;
+            box-sizing: border-box;
+            height: 90px;
+            width: 100%;
+            border: none;
+            outline: none;
+            white-space: pre-wrap;
+            text-align: right;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            @include font-dpr(30px); /*px*/
+            line-height: 90px;
+            vertical-align: middle;
+          }
+          .site{
+            line-height: 1.2em;
+          }
+
+
+        }
+
+      }
+
+
+    }
+
+  }
+
+  // 弹出上传按钮及照片示例
+  .uploadPuBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    .overLayer{
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 26, 25, 0.7);
+    }
+    .uploadBtnWrapper{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1;
+      background: #ffffff;
+      text-align: center;
+      .exampleImg{
+        display: inline-block;
+        width: 90%;
+        height: 0;
+        padding-bottom: 56.7%;
+        //border: 1px solid red;
+        &.front{
+          background: url("../img/id1.jpg") no-repeat center ;
+          background-size: 100%;
+        }
+        &.back{
+          background: url("../img/id2.jpg") no-repeat center;
+          background-size: 100%;
+        }
+        &.all{
+          background: url("../img/id3.jpg") no-repeat center;
+          background-size: 100%;
+        }
+      }
+      .uploadTip{
+        margin: 60px;
+        @include font-dpr(28px); /*px*/
+        text-align: left;
+        font-weight: 400;
+      }
+      .uploadBtnBox{
+        position: relative;
+        width: 90%;
+        height: 80px;
+        line-height: 80px;
+        margin: auto;
+        background: #f9991d;
+        text-align: center;
+        color: #fff;
+        @include font-dpr(34px); /*px*/
+        input{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border: 1px solid red;
+          opacity: 0;
+        }
+
+      }
+
+    }
+  }
+  .submitBox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 99;
+    background: #fff;
+    .submitBtn{
+      display: inline-block;
+      margin: 0 7% 20px;
+      width: 86%;
+      height: 80px;
+      color: #fff;
+      @include font-dpr(34px); /*px*/
+      line-height: 80px;
+      background: #f9991d;
+      text-align: center;
+    }
+  }
+}

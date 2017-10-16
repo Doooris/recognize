@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<title>身份认证</title>
+    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
+    <script src="../js/flexible.debug.js"></script>
+    <script src="../js/flexible_css.debug.js"></script>
+    <!--<script src="https://cdn.bootcss.com/jquery/1.8.0/jquery.js"></script>-->
+	<link type="text/css" rel="stylesheet" href="../css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+    <div id="idAuth">
+        <div class="tip">
+            请准确填写个人信息，上传清晰的照片，信息填写不正确或照片模糊不清将拒绝审核
+        </div>
+        <div class="scrollHook">
+            <div>
+                <!--判断用户没有身份认证-->
+                <div class="uploadImg itemBox">
+                    <div class="uploadItem item" @click="upload(0)">
+                        <img src="../img/uploadItem1.jpg" alt="身份证正面照" ref="uploadItem1">
+                    </div>
+                    <div class="uploadItem item" @click="upload(1)">
+                        <img src="../img/uploadItem2.jpg" alt="身份证反面照" ref="uploadItem2">
+                    </div>
+                    <div class="uploadItem item" @click="upload(2)">
+                        <img src="../img/uploadItem3.jpg" alt="手持身份证照" ref="uploadItem3">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div class="inputItem">
+                        <div class="left">
+                            真实姓名
+                        </div>
+                        <div class="right">
+                        <input v-model.trim="info.name" type="text" placeholder="例：张三" class="input">
+                        </div>
+                    </div>
+                    <div class="inputItem">
+                        <div class="left">
+                            性别
+                        </div>
+                        <div class="right">
+                        <input v-model.trim="info.sex" type="text" placeholder="例：男/女" class="input">
+                        </div>
+                    </div>
+                    <div class="inputItem">
+                    <div class="left">
+                        民族
+                    </div>
+                        <div class="right">
+                        <input v-model.trim="info.ethnic" type="text" placeholder="例：汉" class="input">
+                        </div>
+                    </div>
+                    <div class="inputItem">
+                        <div class="left">
+                            出生日期
+                        </div>
+                        <div class="right">
+                        <input v-model.trim="info.birth" type="text" placeholder="例：1997-01-01" class="input">
+                        </div>
+                    </div>
+                    <div class="inputItem">
+                        <div class="left">
+                            通信地址
+                        </div>
+                        <div class="right">
+                            <textarea v-model.trim="info.site" placeholder="例：北京**" class="input site"></textarea>
+                        </div>
+                    </div>
+                    <div class="inputItem">
+                        <div class="left">
+                            身份证
+                        </div>
+                        <div class="right">
+                        <input v-model.trim="info.id" type="text" placeholder="例：510***092" class="input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-for="item in 3" :key="item" v-if="(item-1) === whichUpload">
+            <transition name="fade">
+                <div v-show="uploadFlag" class="uploadPuBox" @click="cancleUpload($event)">
+                    <div class="overLayer"></div>
+                    <div class="uploadBtnWrapper">
+                        <span :class="cssStyle[whichUpload]" class="exampleImg"></span>
+                        <p  class="uploadTip">请按照示例图提交个人信息</p>
+                        <div class="uploadBtnBox">
+                            上传照片
+                            <input @change="change(this,whichUpload)" type="file" @click.stop="prevent" accept="image/jpeg,image/gif,image/png,image/jpg">
+                        </div>
+                    </div>
+                </div>
+            </transition>
+            <div v-if="status === 0 && whichUpload" class="submitBox">
+                <a href="" class="submitBtn">提交</a>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript" src="../js/vue-resource.min.js"></script>
+<script src="../js/bscroll.min.js"></script>
+<script src="../js/id_auth.js"></script>
+</body>
+</html>
